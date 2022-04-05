@@ -204,7 +204,8 @@ h2 {
   font-weight: 600;
   margin-bottom: 18px;
 }
-.player-choice > .paper {
+
+.player-choice > .paper, .house-choice > .paper {
   background-color: white;
   border: 18px solid #4d68ef;
   border-radius: 50%;
@@ -213,6 +214,28 @@ h2 {
   padding: 36px;
   box-shadow: inset 0 5px rgba(0, 0, 0, 0.2), 0 5px rgba(89, 114, 243, 0.7);
   box-shadow: inset 0 5px rgba(0, 0, 0, 0.2), 0 5px rgba(58, 80, 187, 0.7);
+}
+
+.player-choice > .rock, .house-choice > .rock {
+  background-color: white;
+  border: 14px solid hsl(349, 71%, 52%);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  padding: 42px 36px 30px 36px;
+  box-shadow: inset 0 5px rgb(0 0 0 / 20%), 0 5px rgb(89 114 243 / 70%);
+  box-shadow: inset 0 5px rgb(0 0 0 / 20%), 0 5px hsl(349, 77%, 32%);
+}
+
+.player-choice > .scissors, .house-choice > .scissors {
+  background-color: white;
+  border: 14px solid hsl(39, 89%, 49%);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  padding: 36px;
+  box-shadow: inset 0 5px rgb(0 0 0 / 20%), 0 5px rgb(89 114 243 / 70%);
+  box-shadow: inset 0 5px rgb(0 0 0 / 20%), 0 5px hsl(39, 89%, 33%);
 }
 
 .player {
@@ -260,4 +283,101 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.results-details.hide {
+  display: none;
+}
+
+.results-details.hide > .btn-play-again {
+  display: none;
+}
+
+.results-details.hide > .results-details-text  {
+  display: none;
+}
+
+.loading {
+  background: rgba(0,0,0,0.2);
+	border-radius: 50%;
+	margin: 30px;
+	height: 150px;
+	width: 150px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+.player-choice.winner > .scissors,
+.player-choice.winner > .paper,
+.player-choice.winner > .rock,
+.house-choice.winner > .scissors,
+.house-choice.winner > .paper,
+.house-choice.winner > .rock {
+  box-shadow: 0 0 0 0 rgba(180, 180, 180, 1), 0 0 0 0 rgba(180, 180, 180, 1);
+	transform: scale(1);
+	animation: pulse-winner 2s infinite;
+}
+
+@keyframes pulse-winner {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(180, 180, 180, 0.6), 0 0 0 0 rgba(180, 180, 180, 0.4), 0 0 0 0 rgba(180, 180, 180, 0.2);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 50px rgba(180, 180, 180, 0), 0 0 0 100px rgba(180, 180, 180, 0), 0 0 0 150px rgba(180, 180, 180, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(180, 180, 180, 0), 0 0 0 0 rgba(180, 180, 180, 0), 0 0 0 0 rgba(180, 180, 180, 0);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+.loading.hide {
+  display: none;
+}
+
+.house-choice > .rock, .house-choice > .scissors, .house-choice > .paper {
+  transform: scale(1);
+	animation: grow 0.8s;
+}
+
+.rules-modal {
+  transform: scale(1);
+	animation: grow 0.8s;
+}
+
+.results-details-text, .btn-play-again {
+  transform: scale(1);
+	animation: grow 0.8s;
+}
+
+@keyframes grow {
+	0% {
+		transform: scale(0);
+	}
+
+  100% {
+		transform: scale(1);
+	}
 }
